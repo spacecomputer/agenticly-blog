@@ -1,0 +1,47 @@
+# Site settings
+title: Agenticly
+tagline: Notes on agentic software
+description: >-
+  The Agenticly blog — writing about agents, automation, and building
+  software with AI.
+author: Star Computer
+
+# URL settings
+#
+# The blog is served publicly at https://agenticly.app/blog via a Cloudflare
+# Worker that proxies to GitHub Pages. Because the public path prefix is
+# "/blog", we set baseurl to "/blog" so every generated link and asset URL
+# already resolves correctly behind the proxy. The Worker maps the "/blog"
+# prefix to the GitHub Pages project path "/agenticly-blog" at the origin.
+url: "https://agenticly.app"
+baseurl: "/blog"
+
+# Theme (supported by GitHub Pages' native build)
+theme: minima
+
+# Plugins (all on the GitHub Pages allowlist)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Minima theme options
+minima:
+  date_format: "%b %-d, %Y"
+  social_links:
+    - { platform: github, user_url: "https://github.com/spacecomputer/agenticly-blog" }
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+# Pagination / feed
+show_excerpts: true
+
+exclude:
+  - worker/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .github/

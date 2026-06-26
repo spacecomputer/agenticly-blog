@@ -1,0 +1,10 @@
+name = "agenticly-blog-proxy"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Route the /blog subtree of agenticly.app through this Worker. The zone for
+# agenticly.app already exists in your Cloudflare account.
+routes = [
+  { pattern = "agenticly.app/blog", zone_name = "agenticly.app" },
+  { pattern = "agenticly.app/blog/*", zone_name = "agenticly.app" },
+]

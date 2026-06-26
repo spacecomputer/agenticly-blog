@@ -1,0 +1,14 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+Gemfile.lock
+
+# Worker / Node
+node_modules/
+.wrangler/
+
+# OS
+.DS_Store
