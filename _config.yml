@@ -38,6 +38,17 @@ permalink: /:year/:month/:day/:title/
 # Pagination / feed
 show_excerpts: true
 
+# Defaults — force `layout: post` on everything in _posts/ so articles render
+# with the blog theme even if the publishing tool omits layout from front
+# matter. (The date-prefixed filename, YYYY-MM-DD-title.md, is still required
+# for Jekyll to recognize a file as a post.)
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
 exclude:
   - worker/
   - README.md
