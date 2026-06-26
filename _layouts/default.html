@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/img/agenticly-mark.svg' | relative_url }}" type="image/svg+xml">
+  {%- feed_meta -%}
+</head>
+<body>
+  <div class="util-bar">
+    <span>Agenticly — Journal</span>
+    <span>Agents · Crypto &amp; US Equities</span>
+    <span>Est. 2026</span>
+  </div>
+
+  <header class="site-head">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Agenticly home">
+      {%- include logo.html -%}
+      <span class="brand-word">Agenticly</span>
+    </a>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}">Journal</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a class="nav-cta" href="https://agenticly.app">agenticly.app &#8599;</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-foot">
+    <div class="site-foot__top">
+      <a class="brand brand--invert" href="{{ '/' | relative_url }}">
+        {%- include logo.html -%}
+        <span class="brand-word">Agenticly</span>
+      </a>
+      <nav class="site-foot__nav">
+        <a href="{{ '/' | relative_url }}">Journal</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        <a href="https://agenticly.app">agenticly.app</a>
+      </nav>
+    </div>
+    <div class="site-foot__base">
+      <span>&copy; {{ site.time | date: '%Y' }} Star Computer</span>
+      <span>Put your market research on autopilot.</span>
+    </div>
+  </footer>
+</body>
+</html>

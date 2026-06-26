@@ -16,8 +16,8 @@ author: Star Computer
 url: "https://agenticly.app"
 baseurl: "/blog"
 
-# Theme (supported by GitHub Pages' native build)
-theme: minima
+# No theme gem — the site ships its own layouts (_layouts/) and CSS
+# (assets/css/style.css) for the custom Swiss-editorial design.
 
 # Plugins (all on the GitHub Pages allowlist)
 plugins:
@@ -25,11 +25,10 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Minima theme options
+# Date format read by the custom layouts (kept under `minima` so existing
+# `site.minima.date_format` references resolve).
 minima:
   date_format: "%b %-d, %Y"
-  social_links:
-    - { platform: github, user_url: "https://github.com/spacecomputer/agenticly-blog" }
 
 # Build settings
 markdown: kramdown

@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<section class="masthead">
+  <p class="label">/ Journal &middot; Agents, markets &amp; automation</p>
+  <h1 class="display">Notes on agentic software.</h1>
+  <p class="lede">{{ site.description }}</p>
+</section>
+
+{{ content }}
+
+<section class="post-list">
+  <div class="post-list__head">
+    <h2 class="label">Latest writing</h2>
+    <span class="label">{{ site.posts | size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span>
+  </div>
+
+  {% for post in site.posts %}
+  <article class="post-row">
+    <div class="post-row__index">{% assign n = forloop.index %}{% if n < 10 %}0{% endif %}{{ n }}</div>
+    <div class="post-row__meta">
+      <time class="label" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.minima.date_format }}</time>
+      {%- if post.categories.size > 0 %}<span class="label">{{ post.categories | first }}</span>{% endif -%}
+    </div>
+    <div class="post-row__main">
+      <h3 class="post-row__title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+      {% if post.excerpt %}<p class="post-row__excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>{% endif %}
+      <a class="readmore" href="{{ post.url | relative_url }}">Read <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </article>
+  {% endfor %}
+
+  {% if site.posts.size == 0 %}
+  <p class="empty">No posts yet. The first entry will appear here once published.</p>
+  {% endif %}
+</section>

@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-head">
+    <p class="label">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.minima.date_format }}</time>
+      {%- if page.categories.size > 0 %} &middot; {{ page.categories | first }}{% endif -%}
+    </p>
+    <h1 class="display post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <footer class="post-foot">
+    <a class="readmore" href="{{ '/' | relative_url }}"><span aria-hidden="true">&larr;</span> Back to journal</a>
+  </footer>
+</article>

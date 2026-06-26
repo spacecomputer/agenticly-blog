@@ -1,0 +1,13 @@
+{%- comment -%}
+  Agenticly spiral mark — recreated as inline SVG so it inherits `currentColor`
+  and stays crisp at any size. To use the exact brand export instead, drop the
+  file at assets/img/agenticly-logo.svg and replace this include's <svg> with:
+    <img src="{{ '/assets/img/agenticly-logo.svg' | relative_url }}" alt="Agenticly">
+{%- endcomment -%}
+<svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor"
+     stroke-width="3.1" stroke-linecap="round" aria-hidden="true">
+  <path d="M19 55 A 26 26 0 1 1 49 52" />
+  <path d="M46 48 A 17 17 0 1 0 25 23" />
+  <path d="M29 27 A 8.5 8.5 0 1 1 37 39" />
+  <circle cx="33" cy="33" r="2.3" fill="currentColor" stroke="none" />
+</svg>
