@@ -98,6 +98,7 @@ a { color: inherit; }
   color: var(--ink);
 }
 .brand .mark { width: 34px; height: 34px; display: block; }
+.brand-lockup { height: 38px; width: auto; display: block; }
 .brand-word {
   font-family: var(--serif);
   font-weight: 700;
