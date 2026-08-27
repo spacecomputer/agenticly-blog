@@ -5,7 +5,7 @@ layout: default
   <header class="post-head">
     <p class="label">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.minima.date_format }}</time>
-      {%- if page.categories.size > 0 %} &middot; {{ page.categories | first }}{% endif -%}
+      {%- if page.categories.size > 0 %} · {{ page.categories | first }}{% endif -%}
     </p>
     <h1 class="display post-title">{{ page.title | escape }}</h1>
   </header>
@@ -14,7 +14,18 @@ layout: default
     {{ content }}
   </div>
 
+  <aside class="post-cta" aria-label="Try Agenticly">
+    <p class="post-cta__label">Start free</p>
+    <p class="post-cta__title">Put your market research on autopilot.</p>
+    <p class="post-cta__body">
+      Schedule AI agents across crypto and US equities — get conclusions, not dashboards.
+    </p>
+    <a class="post-cta__btn" href="https://agenticly.app">
+      Start free trial <span aria-hidden="true">→</span>
+    </a>
+  </aside>
+
   <footer class="post-foot">
-    <a class="readmore" href="{{ '/' | relative_url }}"><span aria-hidden="true">&larr;</span> Back to journal</a>
+    <a class="readmore" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> Back to journal</a>
   </footer>
 </article>
