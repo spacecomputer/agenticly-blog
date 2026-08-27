@@ -2,19 +2,40 @@
 layout: default
 ---
 <section class="masthead">
-  <p class="label">/ Journal &middot; Agents, markets &amp; automation</p>
-  <h1 class="display">Notes on agents that read markets.</h1>
+  <p class="label">Journal</p>
+  <h1 class="display">Notes on agents that <em>read markets.</em></h1>
   <p class="lede">
     Agenticly runs scheduled AI agents across Bitcoin, Ethereum, Solana and US
-    equities &mdash; decoding on-chain flows, liquidity and sentiment into signals
+    equities — decoding on-chain flows, liquidity and sentiment into signals
     you can act on. This is where we write about building them.
   </p>
 </section>
 
+{% if site.posts.size > 0 %}
+{% assign featured = site.posts.first %}
+<section class="featured">
+  {% if featured.image %}
+  <a class="featured__media" href="{{ featured.url | relative_url }}">
+    <img src="{{ featured.image }}" alt="" width="960" height="600" loading="eager">
+  </a>
+  {% endif %}
+  <div class="featured__body">
+    <div class="featured__eyebrow">
+      <span class="label">Featured</span>
+      <time class="label" datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: site.minima.date_format }}</time>
+      {%- if featured.categories.size > 0 %}<span class="label">{{ featured.categories | first }}</span>{% endif -%}
+    </div>
+    <h2 class="featured__title"><a href="{{ featured.url | relative_url }}">{{ featured.title | escape }}</a></h2>
+    {% if featured.excerpt %}<p class="featured__excerpt">{{ featured.excerpt | strip_html | truncate: 220 }}</p>{% endif %}
+    <a class="readmore" href="{{ featured.url | relative_url }}">Read <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+{% endif %}
+
 <section class="capabilities">
   <div class="capabilities__head">
     <h2 class="label">What the agents do</h2>
-    <span class="label">/ Capabilities</span>
+    <span class="label">Capabilities</span>
   </div>
   <div class="capabilities__grid">
     <article class="cap">
@@ -29,7 +50,7 @@ layout: default
       <span class="cap__num">02</span>
       <h3 class="cap__title">Unified intelligence</h3>
       <p class="cap__body">
-        Crypto and US equities in a single view &mdash; one model, one watchlist,
+        Crypto and US equities in a single view — one model, one watchlist,
         one source of truth across every market you track.
       </p>
     </article>
@@ -38,7 +59,7 @@ layout: default
       <h3 class="cap__title">On-chain decoding</h3>
       <p class="cap__body">
         Wallet flows, liquidity and sentiment across Bitcoin, Ethereum and
-        Solana &mdash; decoded into plain-English signals.
+        Solana — decoded into plain-English signals.
       </p>
     </article>
   </div>
@@ -53,8 +74,9 @@ layout: default
   </div>
 
   {% for post in site.posts %}
+  {% unless forloop.first %}
   <article class="post-row">
-    <div class="post-row__index">{% assign n = forloop.index %}{% if n < 10 %}0{% endif %}{{ n }}</div>
+    <div class="post-row__index">{% assign n = forloop.index0 %}{% if n < 10 %}0{% endif %}{{ n }}</div>
     <div class="post-row__meta">
       <time class="label" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.minima.date_format }}</time>
       {%- if post.categories.size > 0 %}<span class="label">{{ post.categories | first }}</span>{% endif -%}
@@ -65,6 +87,7 @@ layout: default
       <a class="readmore" href="{{ post.url | relative_url }}">Read <span aria-hidden="true">&rarr;</span></a>
     </div>
   </article>
+  {% endunless %}
   {% endfor %}
 
   {% if site.posts.size == 0 %}
